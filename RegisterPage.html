@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register Page</title>
+    <script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="js/code.js"></script>
+    <script type="text/javascript" src="js/RegisterPage.js"></script>
+        <link href="css/RegisterPageStyles.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  </head>
+  <body>
+    <a href="index.html" class="home-button">Home</a>
+    <a href="LoginPage.html" class="login-button">Login</a>
+     <div class="register-box">
+       <h1>Register</h1>
+       <form>
+         <input class="form-input" id="registerFirstName" type="text" placeholder="First Name" required>
+         <input class="form-input" id="registerLastName" type="text" placeholder="Last Name" required>
+         <input class="form-input" id="registerUsername" type="username" placeholder="Username" required>
+         <input class="form-input" type="password" id="registerPassword" onInput="formatCheckPassword();" placeholder="Create Password" pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}" required>
+         <div class="password-check" id="check0">
+              <span>Password Contains 8 to 32 Characters</span>
+         </div>
+         <div class="password-check" id="check1">
+              <span>Password Contains Numerical Character</span>
+         </div>
+         <div class="password-check" id="check2">
+              <span>Password Contains Special Character</span>
+         </div>
+
+         <input type="submit" id="registerButton" value="Submit" class="form-button" onclick="doRegister();">
+         <span id="registerResult"></span>
+       </form>
+     </div>
+  </body>
+</html>
