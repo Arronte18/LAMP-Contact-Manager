@@ -6,6 +6,15 @@ var id = 0;
 var firstName = "";
 var lastName = "";
 
+var editId = 0;
+var editFirstName = "";
+var editLastName = "";
+var editEmail = "";
+var editPhoneNumber = "";
+var editAddress = "";
+var editCity = "";
+var editState = "";
+
 function doRegister()
 {
   console.log("doRegister()");
@@ -194,6 +203,102 @@ function readCookie()
     }
 }
 
+function newSaveEditCookie(editId)
+{
+  console.log("newSaveEditCookie(editId)");
+  let minutes = 20;
+  let date = new Date();
+  date.setTime(date.getTime()+(minutes*60*1000));
+
+  console.log("newSEC     userId=" + userId);
+  console.log("newSEC     editId=" + editId);
+  console.log("newSEC     firstname=" + editFirstName);
+  console.log("newSEC     lastname=" + editLastName);
+  console.log("newSEC     email=" + editEmail);
+  console.log("newSEC     phone=" + editPhoneNumber);
+  console.log("newSEC     address=" + editAddress);
+  console.log("newSEC     city=" + editCity);
+  console.log("newSEC     state=" + editState);
+
+  document.cookie = "userId=" + userId + ",editId=" + editId + ",firstname=" + editFirstName + ",lastname=" + editLastName +
+                    ",email=" + editEmail +",phone=" + editPhoneNumber +",address=" + editAddress +",city=" + editCity +",state=" + editState +";expires=" + date.toGMTString();
+}
+
+function newReadEditCookie()
+{
+  console.log("readEditCookie()");
+    userId = -1;
+    let data = document.cookie;
+    let splits = data.split(",");
+    for(var i = 0; i < splits.length; i++)
+    {
+      let thisOne = splits[i].trim();
+      let tokens = thisOne.split("=");
+      if( tokens[0] == "userId" )
+      {
+        userId = tokens[1];
+      }
+      else if( tokens[0] == "editId" )
+      {
+        editId = tokens[1];
+      }
+      else if( tokens[0] == "firstname" )
+      {
+        editFirstName = tokens[1];
+      }
+      else if( tokens[0] == "lastname" )
+      {
+        editLastName = tokens[1];
+      }
+      else if( tokens[0] == "email" )
+      {
+        editEmail = tokens[1];
+      }
+      else if( tokens[0] == "phone" )
+      {
+        editPhoneNumber = tokens[1];
+      }
+      else if( tokens[0] == "address" )
+      {
+        editAddress = tokens[1];
+      }
+      else if( tokens[0] == "city" )
+      {
+        editCity = tokens[1];
+      }
+      else if( tokens[0] == "state" )
+      {
+        editState = tokens[1];
+      }
+    }
+    console.log("newREC     userId=" + userId);
+    console.log("newREC     editId=" + editId);
+    console.log("newREC     firstname=" + editFirstName);
+    console.log("newREC     lastname=" + editLastName);
+    console.log("newREC     email=" + editEmail);
+    console.log("newREC     phone=" + editPhoneNumber);
+    console.log("newREC     address=" + editAddress);
+    console.log("newREC     city=" + editCity);
+    console.log("newREC     state=" + editState);
+    if( userId < 0 )
+    {
+      window.location.href = "index.html";
+    }
+    else
+    {
+      // document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+      console.log("newREC     userId=" + userId);
+      console.log("newREC     editId=" + editId);
+      console.log("newREC     firstname=" + editFirstName);
+      console.log("newREC     lastname=" + editLastName);
+      console.log("newREC     email=" + editEmail);
+      console.log("newREC     phone=" + editPhoneNumber);
+      console.log("newREC     address=" + editAddress);
+      console.log("newREC     city=" + editCity);
+      console.log("newREC     state=" + editState);
+    }
+}
+
 function saveEditCookie(id)
 {
   console.log("saveEditCookie(id)");
@@ -349,7 +454,7 @@ function searchContact()
             tableBodyData += "<td id='city" + i + "'><span>" + jsonObject.contacts[i].city + "</span></td>";
             tableBodyData += "<td id='state" + i + "'><span>" + jsonObject.contacts[i].state + "</span></td>";
 
-            tableBodyData += "<td id='edit" + i + "'><a href='EditContactPage.html' class='fa-solid fa-user-pen' onclick='saveEditCookie(" + jsonObject.contacts[i].id + ");'></a></td>";
+            tableBodyData += "<td id='edit" + i + "'><a href='EditContactPage.html' class='fa-solid fa-user-pen' onclick='row("+ i +");saveEditCookie(" + jsonObject.contacts[i].id + ");newSaveEditCookie(" + jsonObject.contacts[i].id + ");'></a></td>";
             // row("+ i +");
             tableBodyData += "<td id='delete" + i + "'><a class='fa-solid fa-trash' onclick='deleteContact(" + jsonObject.contacts[i].userId + ", " + jsonObject.contacts[i].id + ")'></a></td>";
             tableBodyData += "</tr>";
@@ -373,8 +478,9 @@ function editContact()
 {
   readCookie();
   readEditCookie();
+  newReadEditCookie();
 
-  console.log("editContact(UserID: " + userId + " ID: " + id + ")");
+  console.log("editContact(UserID: " + userId + " ID: " + editId + ")");
 
   let contNewFirstname = document.getElementById("contactEditFirstName").value;
   let contNewLastname = document.getElementById("contactEditLastName").value;
@@ -383,6 +489,16 @@ function editContact()
   let contAddress = document.getElementById("contactEditAddress").value;
   let contCity = document.getElementById("contactEditCity").value;
   let contState = document.getElementById("contactEditState").value;
+
+  console.log("EC     contNewFirstname: " + contNewFirstname);
+  console.log("EC     contNewLastname: " + contNewLastname);
+  console.log("EC     contPhoneNumber: " + contPhoneNumber);
+  console.log("EC     contEmail: " + contEmail);
+  console.log("EC     contAddress: " + contAddress);
+  console.log("EC     contCity: " + contCity);
+  console.log("EC     contState: " + contState);
+  console.log("EC     userId: " + userId);
+  console.log("EC     id: " + editId);
 
   let tmp = {
     contNewFirstname: contNewFirstname,
@@ -393,8 +509,10 @@ function editContact()
     contCity: contCity,
     contState: contState,
     userId: userId,
-    id: id
+    id: editId
   };
+
+  console.log("EC     tmp: " + tmp);
 
   let jsonPayload = JSON.stringify(tmp);
   let url = "http://www.4331-spring23-group11.xyz/LAMPAPI/EditContact.php";
@@ -427,51 +545,53 @@ function editContact()
   window.location.href = 'ContactsPage.html';
 }
 
-// function row(i)
-// {
-//   console.log("row();");
-//
-//   let fn = document.getElementById("firstName" + i);
-//   let ln = document.getElementById("lastName" + i);
-//   let em = document.getElementById("email" + i);
-//   let pn = document.getElementById("phoneNumber" + i);
-//   let ad = document.getElementById("address" + i);
-//   let ci = document.getElementById("city" + i);
-//   let st = document.getElementById("state" + i);
-//
-//   let fn1 = fn.innerText;
-//   let ln1 = ln.innerText;
-//   let em1 = em.innerText;
-//   let pn1 = pn.innerText;
-//   let ad1 = ad.innerText;
-//   let ci1 = ci.innerText;
-//   let st1 = st.innerText;
-//
-//   setEditValues(fn1, ln1, em1, pn1, ad1, ci1, st1);
-// }
-//
-// function setEditValues(firstName, lastName, email, phoneNumber, address, city, state)
-// {
-//   console.log("setEditValues();");
-//
-//   console.log(firstName);
-//
-//   var inputFN = document.getElementById("contactEditFirstName");
-//   var inputLN = document.getElementById("contactEditLastName");
-//   var inputPN = document.getElementById("contactEditPhoneNumber");
-//   var inputEM = document.getElementById("contactEditEmail");
-//   var inputAD = document.getElementById("contactEditAddress");
-//   var inputCI = document.getElementById("contactEditCity");
-//   var inputST = document.getElementById("contactEditState");
-//
-//   inputFN.value = firstName;
-//   inputTN.value = lastName;
-//   inputPN.value = phoneNumber;
-//   inputEM.value = email;
-//   inputAD.value = address;
-//   inputCI.value = city;
-//   inputST.value = state;
-// }
+function row(i)
+{
+  console.log("row();");
+
+  let fn = document.getElementById("firstName" + i);
+  let ln = document.getElementById("lastName" + i);
+  let em = document.getElementById("email" + i);
+  let pn = document.getElementById("phoneNumber" + i);
+  let ad = document.getElementById("address" + i);
+  let ci = document.getElementById("city" + i);
+  let st = document.getElementById("state" + i);
+
+  editFirstName = fn.innerText;
+  editLastName = ln.innerText;
+  editEmail = em.innerText;
+  editPhoneNumber = pn.innerText;
+  editAddress = ad.innerText;
+  editCity = ci.innerText;
+  editState = st.innerText;
+
+  console.log("row: " + editFirstName);
+  return;
+}
+
+function setEditValues()
+{
+  console.log("setEditValues();");
+
+  console.log("setEditValues: " + editFirstName);
+
+  var inputFN = document.getElementById("contactEditFirstName");
+  var inputLN = document.getElementById("contactEditLastName");
+  var inputEM = document.getElementById("contactEditEmail");
+  var inputPN = document.getElementById("contactEditPhoneNumber");
+  var inputAD = document.getElementById("contactEditAddress");
+  var inputCI = document.getElementById("contactEditCity");
+  var inputST = document.getElementById("contactEditState");
+
+  inputFN.value = editFirstName;
+  inputLN.value = editLastName;
+  inputEM.value = editEmail;
+  inputPN.value = editPhoneNumber;
+  inputAD.value = editAddress;
+  inputCI.value = editCity;
+  inputST.value = editState;
+  return;
+}
 
 function deleteContact(userId, id)
 {
