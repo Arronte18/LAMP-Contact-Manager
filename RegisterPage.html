@@ -5,32 +5,39 @@
     <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript" src="js/code.js"></script>
     <script type="text/javascript" src="js/RegisterPage.js"></script>
-        <link href="css/RegisterPageStyles.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Manrope&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Space+Grotesk&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/5795bf4eff.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <a href="index.html" class="home-button">Home</a>
-    <a href="LoginPage.html" class="login-button">Login</a>
-     <div class="register-box">
-       <h1>Register</h1>
-       <form>
-         <input class="form-input" id="registerFirstName" type="text" placeholder="First Name" required>
-         <input class="form-input" id="registerLastName" type="text" placeholder="Last Name" required>
-         <input class="form-input" id="registerUsername" type="username" placeholder="Username" required>
-         <input class="form-input" type="password" id="registerPassword" onInput="formatCheckPassword();" placeholder="Create Password" pattern="(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%^&*]).{8,32}" required>
-         <div class="password-check" id="check0">
-              <span>Password Contains 8 to 32 Characters</span>
-         </div>
-         <div class="password-check" id="check1">
-              <span>Password Contains Numerical Character</span>
-         </div>
-         <div class="password-check" id="check2">
-              <span>Password Contains Special Character</span>
-         </div>
+    <div class="image-container">
+      <div class="container">
+        <div class="form-container">
+          <h1 style = "font-family: Space Grotesk; margin-right: 20px; font-weight: normal; ">Create an Account</h1></p>
+            <form>
+              <input class="first-name" id="registerFirstName" type="text" placeholder="First Name" required>
+              <input class="last-name" id="registerLastName" type="text" placeholder="Last Name" required>
+              <input class="username" id="registerUsername" type="text" placeholder="Username" required>
+              <input class="password" id="registerPassword" type="password" onInput="formatCheckPassword();" placeholder="Password" required>
 
-         <input type="submit" id="registerButton" value="Submit" class="form-button" onclick="doRegister();">
-         <span id="registerResult"></span>
-       </form>
-     </div>
+              <div class="password-check" id="check0">
+                   <span>Password Contains 8 to 32 Characters <span id="x1"></span></span>
+              </div>
+              <div class="password-check" id="check1">
+                   <span>Password Contains Numerical Character <span id="x2"></span></span>
+              </div>
+              <div class="password-check" id="check2">
+                   <span>Password Contains Special Character <span id="x3"></span></span>
+              </div>
+
+              <button class="form-button" type="button" id="registerButton" onclick="doRegister();">Register</button>
+              <span class = "results" id="registerResult"></span>
+              <a class = "link" href="index.html"><h4 style = "font-family: Space Grotesk; margin-right: 20px; margin-top: 20px; font-size: 13;">Already have an account? Login here</h4></form></a>
+            </form>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

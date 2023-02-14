@@ -1,19 +1,28 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Home Page</title>
     <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript" src="js/code.js"></script>
-        <link href="css/indexStyles.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    </head>
-      <body>
-        <div class="top-section">
-          <h1>COP4331 Contact Manager</h1>
-        </div>
-        <div class="bottom-section">
-          <a href="RegisterPage.html" class="register-button">Register</a>
-          <a href="LoginPage.html" class="login-button">Login</a>
-        </div>
-      </body>
-    </html>
+    <link href="https://fonts.googleapis.com/css?family=Manrope&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Space+Grotesk&display=swap" rel="stylesheet" />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/5795bf4eff.js" crossorigin="anonymous"></script>
+    <title>Welcome To Paradise!</title>
+  </head>
+  <body>
+    <div class="image-container">
+    <div class="container">
+      <div class="form-container">
+        <h1 style = "font-family: Space Grotesk; margin-right: 80px; font-weight: normal;">Welcome Back!</h1></p>
+        <p style = "font-family: Space Grotesk; margin-right: 110px; margin-bottom: 40px;">Please enter your details.</p>
+        <form>
+          <input type="text" id="loginName" placeholder="Username" required>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <button class="form-button" id="loginButton" type="button" onclick="doLogin();">Login</button>
+          <span class = "results" id="loginResult"></span>
+          <a class = "link" href="RegisterPage.html"><h4 style = "font-family: Space Grotesk; margin-right: 20px; margin-top: 20px; font-size: 13;">Don't have an account? Sign up for free</h4></a>
+        </form>
+      </div>
+     </div>
+    </div>
+  </body>
+</html>

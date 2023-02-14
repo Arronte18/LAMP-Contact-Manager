@@ -4,20 +4,21 @@
     <title>Add Contact</title>
     <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript" src="js/code.js"></script>
-    <script type="text/javascript" src="js/AddContactPage.js"></script>
         <link href="css/AddContactPageStyles.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Space+Grotesk&display=swap" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/e82943dcaf.js" crossorigin="anonymous"></script>
   </head>
     <body>
-      <a onclick="doLogout();" class="logout-button">Logout</a>
-      <a href="ContactsPage.html" class="cancel-button">Cancel</a>
+      <div class ="pagebox">
+      <div onclick="doLogout();"> <i class="fa-solid fa-person-walking-arrow-right"></i> </div>
       <div class="newContact-box">
-        <h1 id="contactAddResult">Add Contact</h1>
+        <h1 id="contactAddResult" font="Space Grotesk"><strong>Add Contact</strong></h1>
         <form>
-          <input type="text" id="contactFirstName" class="form-input" placeholder="First Name" required>
-          <input type="text" id="contactLastName" class="form-input" placeholder="LastName" required>
+          <input type="text" id="contactFirstName" class="form-input" color="black" placeholder="First Name" required>
+          <input type="text" id="contactLastName" class="form-input" placeholder="Last Name" required>
           <input type="email" id="contactEmail" class="form-input" placeholder="Email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required>
-          <input type="tel" id="contactPhoneNumber" class="form-input" placeholder="Phone Number" onkeydown="formatPhoneNumber()" required>
+          <input type="tel" id="contactPhoneNumber" class="form-input" placeholder="Phone Number" required>
           <input type="text" id="contactAddress" class="form-input" placeholder="Address" required>
           <input type="text" id="contactCity" class="form-input" placeholder="City" required>
           <select id="contactState" class="form-select" required>
@@ -74,8 +75,10 @@
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
           </select>
-          <input type="submit" value="Submit" class="form-submit" onclick="addContact();">
+          <button type= "submit" value="Submit" class="form-submit" onclick="addContact();window.location.href = 'ContactsPage.html';">Submit</button>
+          <button type = "cancel-button2" class = "cancel-button2" onclick="window.location.href = 'ContactsPage.html';">Cancel</button>
         </form>
+      </div>
       </div>
     </body>
   </html>

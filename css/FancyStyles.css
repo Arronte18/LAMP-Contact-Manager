@@ -1,0 +1,103 @@
+* {
+    margin:0;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-right: auto;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 20px;
+    width: calc(35% - (.5em + 6px));
+  }
+
+  .image-container {
+    display: flex;
+    background-image: url("../images/v17_58.png");
+    background-size: cover;
+    width: calc(65% - (.5em + 6px));
+    height: 100%;
+
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  /* Login/Pass text box */
+  input[type="text"], input[type="password"] {
+    background: transparent;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #c5c2c2;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 15;
+    font-weight: 900;
+  }
+
+  /* Login button */
+  .form-button {
+    padding: 10px 20px;
+    background-color: rgba(6,6,6,1);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 12;
+    font-weight: 100;
+    padding: 12px 140px;
+  }
+
+  /* Moon button */
+  #ldbutt{
+      margin-right:auto;
+      position: relative;
+      right: 34.5%;
+      top: 47%;
+
+  }
+
+  /* Hovering "sign up" link */
+  .link:hover{
+    color: orange;
+  }
+  .link{
+    color: rgb(87, 87, 218);
+  }
+
+  /* Moon hover colors */
+  .fa-moon{
+    color:black;
+  }
+  .fa-moon:hover{
+    color:orange;
+  }
+  .fa-moon:active{
+    color: blueviolet
+  }
+
+  /* Login button hover */
+  .form-button:hover {
+    background-color: #555a5f;
+    box-shadow: 0 0 0px #6b3638;
+}

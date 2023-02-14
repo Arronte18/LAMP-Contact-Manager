@@ -1,135 +1,117 @@
-body {
-    background-color: #707070;
+* {
+  margin:0;
 }
 
-#title {
-    font-size: 40px;
-    width: 100%;
-    margin: 2% 5%;
-    text-align: center;
-    font-family: 'Ubuntu', sans-serif;
-    color: #FFFFFF;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 25%;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.785);
 }
 
-#loginDiv {
-    border-radius: 30px;
-    font-size: 20px;
-    width: 100%;
-    margin-left: 20%;
-    padding: 30px;
-    background-color: #b2b2b2;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 20px;
+  width: 100%;
 }
 
-s
-#loggedInDiv {
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
+.image-container {
+  display: flex;
+  background-image: url("../images/v17_58.png");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+
 }
 
-#accessUIDiv {
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.buttons {
-    font-size: 30px;
-    border-radius: 25px;
-    width: 50%;
-    margin-left: 25%;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.buttons:hover {
-    background-color: #9eacb7;
-    color: #FFFFFF;
-    opacity: 50%;
-}
-
-#loginName {
-    font-size: 30px;
-}
-
-#loginPassword {
-    font-size: 30px;
-}
-
-#searchText {
-    font-size: 30px;
-}
-
-#colorText {
-    font-size: 30px;
-}
-
+/* Login/Pass text box */
 input[type="text"], input[type="password"] {
-    border-radius: 20px;
-    text-align: center;
-    width: 60%;
-    margin-left: 10%;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #c5c2c2;
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15;
+  font-weight: 900;
 }
 
-#inner-title {
-    display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-left: 5%;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #6b3638;
+/* Login button */
+.form-button {
+  padding: 10px 20px;
+  background-color: rgba(6,6,6,1);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12;
+  font-weight: 100;
+  padding: 12px 140px;
 }
 
-#loginResult {
-    display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-left: 5%;
-    margin-bottom: 2%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #6b3638;
+/* Password Check */
+.password-check {
+  padding: 10px 20px;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12;
+  font-weight: bold;
+  transition: all 0.5s ease-in-out;
 }
 
-#userName {
-    display: inline-block;
-    width: 80%;
-    margin-left: 10%;
-    text-align: center;
+/* Moon button */
+#ldbutt{
+    margin-right:auto;
+    position: relative;
+    right: 34.5%;
+    top: 47%;
+
 }
 
-#logoutButton {
-    width: 20%;
-    margin-left: 40%;
+/* Hovering "sign up" link */
+.link:hover{
+  color: orange;
+}
+.link{
+  color: rgb(87, 87, 218);
 }
 
-select {
-    width: 30%;
-    margin-left: 35%;
-    margin-top: 2%;
-    font-size: 0.75em;
-    font-family: 'Ubuntu', sans-serif;
+/* Moon hover colors */
+.fa-moon{
+  color:black;
+}
+.fa-moon:hover{
+  color:orange;
+}
+.fa-moon:active{
+  color: blueviolet
 }
 
-#colorSearchResult {
-    display: none;
-}
-
-#colorAddResult {
-    display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-left: 5%;
-    margin-top: 2%;
-    margin-bottom: 1%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #6b3638;
+/* Login button hover */
+.form-button:hover {
+  background-color: #555a5f;
+  box-shadow: 0 0 0px #6b3638;
 }

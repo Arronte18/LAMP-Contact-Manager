@@ -1,9 +1,13 @@
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #9eacb7;
-}
+  display: flex;
+  background-image: url("../images/v17_58.png");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  font-family: Space Grotesk;
+ }
+
 #searchbar{
   position: absolute;
   top: 20px;
@@ -12,18 +16,20 @@ body {
   margin-left: 15%;
   padding:15px;
   border-radius: 15px;
-  box-shadow: 0 0 10px #2c3039;
+  box-shadow: 0 0 10px #2c3939;
+  font-family: Space Grotesk;
+  animation: transitionIn 1.25s;
 }
 .contact-box {
   width: 90%;
-  height: 75%;
-  background-color: #fff;
-  padding: 20px;
+  height: 55%;
+  background-color: rgba(255, 255, 255, 0.833);
+  padding: 40px;
   box-sizing: border-box;
   border-radius: 15px;
   box-shadow: 0 0 10px #2c3039;
   margin: 75pt auto;
-  animation: transitionIn 0.75s;
+  animation: transitionIn 1.25s;
 }
 h1 {
   text-align: center;
@@ -38,15 +44,17 @@ h1 {
   border-collapse: collapse;
 }
 
+/*Columns and Rows adjustments*/
 .contact-table th,
 .contact-table td {
-  border: 1px solid #ccc;
+  border: 1px solid rgb(0, 0, 0);
   padding: 8px;
   text-align: left;
 }
 
+/*Middle row colors*/
 .contact-table tr:nth-child(even) {
-  background-color: #e2e9ee;
+  background-color: #FFC5A2;
 }
 
 .contact-table th {
@@ -54,8 +62,10 @@ h1 {
   color: #fff;
 }
 
-.edit-button {
-  background-color: #9eacb7;
+/* Edit Button*/
+.fa-user-pen {
+
+  background-color: #9a7edc;
   color: #fff;
   border: 2px solid #FFFFFF;
   padding: 5px 10px;
@@ -63,14 +73,16 @@ h1 {
   cursor: pointer;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
+
 }
 
-.edit-button:hover {
-  background-color: #2c3039;
+.fa-user-pen:hover {
+  background-color: #B25E98;
   box-shadow: 0 0 5px #6b3638;
 }
 
-.delete-button {
+/* Delete Button*/
+.fa-trash {
   background-color: #b22222;
   color: #fff;
   border: 2px solid #FFFFFF;
@@ -81,20 +93,21 @@ h1 {
   transition: all 0.2s ease-in-out;
 }
 
-.delete-button:hover {
-  background-color: #2c3039;
+.fa-trash:hover {
+  background-color: #ff0000;
   box-shadow: 0 0 5px #6b3638;
 }
 
 .contact-table tr:hover {
-  background-color: #fedbd1;
+  background-color: #59d8d8c7;
 }
 
-.logout-button {
+/*logout Button*/
+.fa-person-walking-arrow-right {
   position: absolute;
   top: 20px;
   left: 20px;
-  background-color: #2c3039;
+  background-color: #e85454;
   color: #fff;
   padding: 14px 20px;
   border: 4px solid #FFFFFF;
@@ -102,20 +115,21 @@ h1 {
   cursor: pointer;
   font-size: 18px;
   text-decoration: none;
-  box-shadow: 0 0 5px #2c3039;
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 0 5px #39342c;
+  animation: transitionIn 1.25s;
 }
 
-.logout-button:hover {
-  background-color: #9eacb7;
+.fa-person-walking-arrow-right:hover {
+  background-color: #ffb39cea;
   box-shadow: 0 0 0px #6b3638;
 }
 
-.add-button {
+/* Add button */
+.fa-user-plus {
   position: absolute;
   top: 20px;
   right: 20px;
-  background-color: #2c3039;
+  background-color: #27b16edb;
   color: #fff;
   padding: 14px 20px;
   border: 4px solid #FFFFFF;
@@ -124,12 +138,13 @@ h1 {
   font-size: 18px;
   text-decoration: none;
   box-shadow: 0 0 5px #2c3039;
-  transition: all 0.2s ease-in-out;
+  animation: transitionIn 1.25s;
+
 }
 
-.add-button:hover {
-  background-color: #9eacb7;
-  box-shadow: 0 0 0px #6b3638;
+.fa-user-plus:hover {
+  background-color: #5ae04d;
+  box-shadow: 0 0 0px #ffffff;
 }
 
 @keyframes transitionIn {

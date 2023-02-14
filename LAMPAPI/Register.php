@@ -1,6 +1,5 @@
 <?php
   $inData = getRequestInfo();
-
   // ini_set('log_errors', TRUE);
   // ini_set('display_errors', TRUE);
 
@@ -15,7 +14,6 @@
     $stmt->bind_param("ssss", $inData["registerFirstName"], $inData["registerLastName"], $inData["registerUsername"], $inData["registerPassword"]);
     $stmt->execute();
     $stmt->close();
-    // $result = $stmt->get_result();
 
 
     $stmt = $conn->prepare("SELECT ID,firstName,lastName FROM Users WHERE Login=? AND Password =?");
@@ -25,26 +23,15 @@
 
     if( $row = $result->fetch_assoc()  )
     {
-      returnWithInfo( $row['firstName'], $row['lastName'], $row['ID'],$row['email'] );
+      returnWithInfo( $row['firstName'], $row['lastName'], $row['ID'] );
     }
     else
     {
       returnWithError("No Records Found");
     }
 
-
-    // if( $row = $result->fetch_assoc()  )
-    // {
-    //   returnWithInfo( $row['firstName'], $row['lastName'], $row['ID'], $row['email'] );
-    // }
-    // else
-    // {
-    //   returnWithError("No Records Found");
-    // }
-
     $stmt->close();
     $conn->close();
-    // returnWithError("");
   }
 
   function getRequestInfo()
